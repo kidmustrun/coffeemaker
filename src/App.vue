@@ -1,17 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Choose :coffee_list="coffee_list"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Choose from './components/Choose.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Choose
+  },
+  data(){
+    return {
+      coffee_list: [
+        {
+          id: 1,
+          name: 'americano',
+          ingredients: {
+            water: 3/4,
+            espresso: 1/4
+          }
+        },
+         {
+           id: 2,
+          name: 'cappucino'
+        },
+         {
+           id: 3,
+          name: 'espresso'
+        }
+      ]
+
+      
+    }
   }
 }
 </script>
