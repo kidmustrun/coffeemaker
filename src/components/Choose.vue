@@ -2,7 +2,7 @@
 <div class="container">
   <ul v-for="coffee in coffee_list" :key="coffee.id">
 
-      <li>{{ coffee.ingredients }}</li>
+      <li>{{ coffee.name }}</li>
 
   </ul>
   </div>
