@@ -5,7 +5,7 @@
       <li @click="showIngredients(coffee.id)">{{ coffee.name }}</li>
 
   </ul>
-  <canvas id="glass" height="100" width="40"></canvas>
+  <canvas id="glass" height="200" width="40"></canvas>
   </div>
 </template>
 
@@ -17,37 +17,36 @@ export default {
   ],
   methods:{
      makeCoffee: function(ingredients){
-    
+      let index=0;
       let canvas = document.getElementById('glass');
       let ctx = canvas.getContext('2d');
       let y = canvas.height;
+      let color="black";
       ctx.clearRect(0,0, canvas.width, canvas.height);
       for (let ingredient in ingredients) {
-        if(ingredient === 'milk'){
-            console.log(ingredients[ingredient]*100)
-            ctx.fillStyle = 'white';
-            console.log('milk')
+      let promise = new Promise((resolve) => {
+        setTimeout(function(){
+          if(ingredient === 'milk'){
+            color = 'white';
             }
-        if(ingredient === 'whipped_milk'){
-            console.log(ingredients[ingredient]*100)
-            ctx.fillStyle = '#fff8e7';
-            console.log('whipped_milk')
+          if(ingredient === 'whipped_milk'){
+            color ='#fff8e7';
             }
-        if(ingredient === 'espresso'){
-            console.log(ingredients[ingredient]*100)
-            ctx.fillStyle = 'brown';
-            console.log('espresso')
+          if(ingredient === 'espresso'){
+            color ='brown';
           }
-        if(ingredient === 'water'){
-            console.log(ingredients[ingredient]*100)
-            ctx.fillStyle = 'blue';
-            console.log('water')
+          if(ingredient === 'water'){
+            color = 'blue';
           }
-          ctx.fillRect(0, y-ingredients[ingredient]*100, canvas.width, ingredients[ingredient]*100);
-          console.log(y);
-          y = y-ingredients[ingredient]*100;
+          resolve(color);}, 1000*index)});
+      promise.then(result =>{
+        ctx.fillStyle=result;
+        ctx.fillRect(0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+        y = y-ingredients[ingredient]*canvas.height;
+         }) 
+      index+=1
       }
-    },
+     },
     showIngredients: function(coffee_id){
       let index = this.coffee_list.findIndex((coffee) => coffee.id === coffee_id)
       this.makeCoffee(this.coffee_list[index].ingredients)
@@ -57,7 +56,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 canvas{
   background-color: beige;
