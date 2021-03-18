@@ -5,7 +5,7 @@
       <li @click="showIngredients(coffee.id)">{{ coffee.name }}</li>
 
   </ul>
-  <canvas id="glass" height="200" width="40"></canvas>
+  <canvas id="glass" height="200" width="60"></canvas>
   </div>
 </template>
 
@@ -17,14 +17,13 @@ export default {
   ],
   methods:{
      makeCoffee: function(ingredients){
-      let index=0;
-      let canvas = document.getElementById('glass');
-      let ctx = canvas.getContext('2d');
-      let y = canvas.height;
-      let color="black";
-      ctx.clearRect(0,0, canvas.width, canvas.height);
-      for (let ingredient in ingredients) {
-      let promise = new Promise((resolve) => {
+        let index=0;
+        let canvas = document.getElementById('glass');
+        let ctx = canvas.getContext('2d');
+        let y = canvas.height;
+        let color="black";
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        for (let ingredient in ingredients) {
         setTimeout(function(){
           if(ingredient === 'milk'){
             color = 'white';
@@ -38,15 +37,14 @@ export default {
           if(ingredient === 'water'){
             color = 'blue';
           }
-          resolve(color);}, 1000*index)});
-      promise.then(result =>{
-        ctx.fillStyle=result;
-        ctx.fillRect(0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
-        y = y-ingredients[ingredient]*canvas.height;
-         }) 
-      index+=1
-      }
-     },
+          ctx.fillStyle=color;
+          ctx.fillRect(0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+          y = y-ingredients[ingredient]*canvas.height
+          },1000*index)
+          index+=1
+          }
+        },
+
     showIngredients: function(coffee_id){
       let index = this.coffee_list.findIndex((coffee) => coffee.id === coffee_id)
       this.makeCoffee(this.coffee_list[index].ingredients)
