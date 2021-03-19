@@ -113,7 +113,7 @@ body{
         transform: translate3d(40px, 50px, 0px);
         animation-timing-function: ease-out;
     }
-    50% {
+    75% {
         transform: translate3d(50px, 30px, 0px);
         animation-timing-function: ease-out;
     }
