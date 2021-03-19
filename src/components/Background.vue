@@ -234,6 +234,7 @@ body{
     z-index: -1;
     object-fit: cover;
     animation: bobble 8s ease-in-out infinite;
+
 }
 #ellipse1{
 right: -10vw;
@@ -251,6 +252,7 @@ right: 50vw;
      right: 30vh;
     top: 70vh;
 }
+
 @keyframes bobble {
     0% {
         transform: translate3d(50px, 0px, 0px);
@@ -272,6 +274,7 @@ right: 50vw;
         transform: translate3d(50px, 0px, 0px);
     }
 }
+
 @keyframes rotation {
     0% {
         transform:rotate(0deg)
