@@ -7,16 +7,20 @@
     <img class="line2" src="../assets/line2.svg" alt="line">
     <img id="rectangle1" class="rectangle" src="../assets/rectangle.svg" alt="rectangle">
     <img id="rectangle2" class="rectangle" src="../assets/rectangle.svg" alt="rectangle">
-    <Choose :coffee_list="coffee_list"/>
+    <Menu :coffee_list="coffee_list"/>
+    <Choose />
+    
 </div>
 
 </template>
 
 <script>
 import Choose from '../components/Choose.vue'
+import Menu from '../components/Menu.vue'
 export default {
     components: {
-    Choose
+    Choose,
+    Menu
   },
   props:[
     'coffee_list'
