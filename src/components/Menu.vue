@@ -3,13 +3,13 @@
    <b-button v-b-toggle.my-sidebar>Приготовить что-нибудь!</b-button>
   <b-sidebar id="my-sidebar" bg-variant="transparent" title="Sidebar">
       <template #header="{ hide }">
-        <b-button size="sm" @click="hide">Закрыть</b-button>
-      </template>
-      <div class="px-3 py-2">
+        <div @click="hide" class="px-3 py-2">
           <ul v-for="coffee in coffee_list" :key="coffee.id">
            <li href="#" @click="showIngredients(coffee.id)">{{ coffee.name }}</li>
         </ul>
       </div>
+      </template>
+      
     </b-sidebar>
 </div>
 </template>
@@ -46,7 +46,7 @@ export default {
           ctx.fillRect(0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
           y = y-ingredients[ingredient]*canvas.height
           },1000*index)
-          index+=1
+          index+=1;
           }
         },
 
