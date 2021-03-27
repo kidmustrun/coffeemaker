@@ -1,6 +1,6 @@
 <template>
-<div class="menu">
-   <b-button v-b-toggle.my-sidebar>Приготовить что-нибудь!</b-button>
+<div class="menu text-left">
+   <b-button v-b-toggle.my-sidebar variant="light">Приготовить что-нибудь!</b-button>
   <b-sidebar id="my-sidebar" bg-variant="transparent" title="Sidebar">
       <template #header="{ hide }">
         <div @click="hide" class="px-3 py-2">
@@ -67,5 +67,10 @@ export default {
 }
 b-collapse{
 background-color: beige;
+}
+ul li{
+    list-style-type: none;
+    cursor: pointer;
+    color: white
 }
 </style>
