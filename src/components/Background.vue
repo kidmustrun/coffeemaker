@@ -36,11 +36,7 @@ export default {
     box-sizing: border-box;
 }
 
-body{
-    position: relative;
-    background-color: #FFD1BA;
-    overflow: hidden !important; 
-}
+
 
 .wrap{
     height: 100vh;

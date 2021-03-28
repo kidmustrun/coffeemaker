@@ -57,4 +57,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+body{
+    position: relative;
+    background-color: #FFD1BA !important;
+    overflow: hidden !important; 
+}
 </style>
