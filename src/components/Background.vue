@@ -22,10 +22,12 @@ export default {
     Choose,
     Menu
   },
-  props:[
-    'coffee_list'
-  ],
   name: 'Background',
+  computed: {
+      coffee_list(){
+          return this.$store.state.coffee_list;
+      }
+  }
 }
 </script>
 <style>
