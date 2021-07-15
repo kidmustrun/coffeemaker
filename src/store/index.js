@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
           name: 'americano',
           ingredients: {
             espresso: 1/4,
-             water: 3/4,
+            water: 3/4,
           }
         },
          {
@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
           ingredients: {
             espresso: 1/4,
             milk: 1/4,
-            whipped_milk: 1/2
+            'whipped milk': 1/2
           }
         },
          {

@@ -30,6 +30,6 @@ export default {
 body{
     position: relative;
     background-color: #FFD1BA !important;
-    overflow: hidden !important; 
+    /* overflow: hidden !important;  */
 }
 </style>

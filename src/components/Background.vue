@@ -7,7 +7,7 @@
     <img class="line2" src="../assets/line2.svg" alt="line">
     <img id="rectangle1" class="rectangle" src="../assets/rectangle.svg" alt="rectangle">
     <img id="rectangle2" class="rectangle" src="../assets/rectangle.svg" alt="rectangle">
-    <Menu :coffee_list="coffee_list"/>
+  
     <Choose />
     
 </div>
@@ -16,18 +16,12 @@
 
 <script>
 import Choose from '../components/Choose.vue'
-import Menu from '../components/Menu.vue'
+
 export default {
     components: {
-    Choose,
-    Menu
+    Choose
   },
   name: 'Background',
-  computed: {
-      coffee_list(){
-          return this.$store.state.coffee_list;
-      }
-  }
 }
 </script>
 <style>

@@ -1,6 +1,6 @@
 <template>
 <div class="menu text-left">
-   <b-button v-b-toggle.my-sidebar variant="light">Приготовить что-нибудь!</b-button>
+   <b-button v-b-toggle.my-sidebar variant="light">Cook something!</b-button>
   <b-sidebar id="my-sidebar" bg-variant="transparent" title="Sidebar">
       <template #header="{ hide }">
         <div @click="hide" class="px-3 py-2">
@@ -21,39 +21,62 @@ export default {
     'coffee_list'
   ],
   methods:{
+      getImgUrl(pic) {
+    return require('../assets/' + pic);
+      },
      makeCoffee: function(ingredients){
-        let index=0;
+        let index=1;
         let canvas = document.getElementById('glass');
         let ctx = canvas.getContext('2d');
+        let water = new Image()
+        water.src = this.getImgUrl('water.png')
+        let espresso = new Image()
+        espresso.src = this.getImgUrl('espresso.png')
+        let whipped_milk = new Image()
+        whipped_milk.src = this.getImgUrl('whipped_milk.png')
+        let milk = new Image()
+        milk.src = this.getImgUrl('milk.png')
         let y = canvas.height;
-        let color="black";
         ctx.clearRect(0,0, canvas.width, canvas.height);
         for (let ingredient in ingredients) {
         setTimeout(function(){
           if(ingredient === 'milk'){
-            color = 'white';
+            ctx.drawImage(milk, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+            y = y-ingredients[ingredient]*canvas.height
             }
-          if(ingredient === 'whipped_milk'){
-            color ='#fff8e7';
+          if(ingredient === 'whipped milk'){
+          ctx.drawImage(whipped_milk, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+          y = y-ingredients[ingredient]*canvas.height
             }
           if(ingredient === 'espresso'){
-            color ='brown';
+            ctx.drawImage(espresso, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+            y = y-ingredients[ingredient]*canvas.height
           }
           if(ingredient === 'water'){
-            color = 'blue';
+            ctx.drawImage(water, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+            y = y-ingredients[ingredient]*canvas.height
           }
-          ctx.fillStyle=color;
-          ctx.fillRect(0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
-          y = y-ingredients[ingredient]*canvas.height
           },1000*index)
+         
           index+=1;
           }
         },
+      
 
     showIngredients: function(coffee_id){
       let index = this.coffee_list.findIndex((coffee) => coffee.id === coffee_id)
-      this.makeCoffee(this.coffee_list[index].ingredients)
-    },
+      this.$emit('getIngredients', {
+          ingredients: this.coffee_list[index].ingredients
+        })
+       let promise = new Promise((resolve) => {
+        resolve(this.coffee_list[index].ingredients)
+        });
+      promise
+      .then(
+    result => this.makeCoffee(result)
+      );
+      },
+
    
   }
 }
