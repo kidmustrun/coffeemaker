@@ -36,6 +36,10 @@ export default {
         whipped_milk.src = this.getImgUrl('whipped_milk.png')
         let milk = new Image()
         milk.src = this.getImgUrl('milk.png')
+        let syrup = new Image()
+        syrup.src = this.getImgUrl('syrup.png')
+        let whipped_cream = new Image()
+        whipped_cream.src = this.getImgUrl('whipped_cream.png')
         let y = canvas.height;
         ctx.clearRect(0,0, canvas.width, canvas.height);
         for (let ingredient in ingredients) {
@@ -56,6 +60,14 @@ export default {
             ctx.drawImage(water, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
             y = y-ingredients[ingredient]*canvas.height
           }
+           if(ingredient === 'syrup'){
+            ctx.drawImage(syrup, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+            y = y-ingredients[ingredient]*canvas.height
+            }
+            if(ingredient === 'whipped cream'){
+            ctx.drawImage(whipped_cream, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height, 0, y-ingredients[ingredient]*canvas.height, canvas.width, ingredients[ingredient]*canvas.height);
+            y = y-ingredients[ingredient]*canvas.height
+            }
           },1000*index)
          
           index+=1;

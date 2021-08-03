@@ -29,7 +29,72 @@ export const store = new Vuex.Store({
           ingredients: {
             espresso: 1/4
           }
-        }
+        },
+        {
+          id: 4,
+         name: 'doppio',
+         ingredients: {
+           espresso: 1/2
+         }
+       },
+       {
+        id: 5,
+       name: 'tripplo',
+       ingredients: {
+         espresso: 3/4
+       }
+     },
+     {
+      id: 6,
+     name: 'flat white',
+     ingredients: {
+       espresso: 1/3,
+       milk: 2/3
+     }
+   },
+   {
+    id: 7,
+   name: 'macchiato',
+   ingredients: {
+     espresso: 1/2,
+     'whipped milk': 1/10
+   }
+ },
+ {
+  id: 8,
+ name: 'latte',
+ ingredients: {
+   espresso: 1/4,
+   milk: 1/2,
+   'whipped milk': 1/4
+ }
+},
+{
+  id: 9,
+ name: 'raf',
+ ingredients: {
+   syrup: 1/10,
+   espresso: 3/10,
+   'whipped milk': 3/5
+ }
+},
+{
+  id: 10,
+ name: 'viennese coffee',
+ ingredients: {
+   espresso: 1/4,
+   'whipped cream': 3/4
+ }
+},
+{
+  id: 11,
+ name: 'latte macchiato',
+ ingredients: {
+   espresso: 1/4,
+   milk: 1/2,
+   'whipped cream': 1/4
+ }
+},
       ]
   }
 })

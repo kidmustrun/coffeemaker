@@ -7,7 +7,7 @@
     <canvas id="glass" height="400" width="180">
   </canvas>
     <ul v-for="(ingredient, index) in this.ingredients.ingredients" :key="index">
-           <li>{{ index }} - {{ingredient}}</li>
+           <li>{{ index }} - {{ ingredient.toFixed(2) }}</li>
         </ul>
   </div>
   <div v-else class="d-flex justify-content-center">
