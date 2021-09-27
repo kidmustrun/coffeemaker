@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
         ingredients: {
           espresso: 1 / 4,
           milk: 1 / 4,
-          "whipped milk": 1 / 2,
+          'whipped milk': 1 / 2,
         },
       },
       {
@@ -57,7 +57,7 @@ export const store = new Vuex.Store({
         name: "macchiato",
         ingredients: {
           espresso: 1 / 2,
-          whipped_milk: 1 / 10,
+          'whipped milk': 1 / 10,
         },
       },
       {
@@ -66,7 +66,7 @@ export const store = new Vuex.Store({
         ingredients: {
           espresso: 1 / 4,
           milk: 1 / 2,
-          whipped_milk: 1 / 4,
+          'whipped milk': 1 / 4,
         },
       },
       {
@@ -75,7 +75,7 @@ export const store = new Vuex.Store({
         ingredients: {
           syrup: 1 / 10,
           espresso: 3 / 10,
-          whipped_milk: 3 / 5,
+          'whipped milk': 3 / 5,
         },
       },
       {
@@ -83,7 +83,7 @@ export const store = new Vuex.Store({
         name: "viennese coffee",
         ingredients: {
           espresso: 1 / 4,
-          whipped_cream: 3 / 4,
+          'whipped cream': 3 / 4,
         },
       },
       {
@@ -92,7 +92,7 @@ export const store = new Vuex.Store({
         ingredients: {
           espresso: 1 / 4,
           milk: 1 / 2,
-          whipped_cream: 1 / 4,
+          'whipped cream': 1 / 4,
         },
       },
     ],
